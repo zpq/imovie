@@ -1,0 +1,46 @@
+.container
+    .row
+        .page-header
+            h1= title
+            small 重度科幻迷
+
+.navbar.navbar-default.navbar-fixed-bottom
+    .container
+        .navbar-header
+            a.navbar-brand(href='/') 重度科幻迷
+        p.navbar-text.navbar-right
+            a.navbar-link(href='#', data-toggle='modal', data-target='#signupModal') register
+            span &nbsp;|&nbsp;
+            a.navbar-link(href='#', data-toggle='modal', data-target='#signinModal') login
+
+#signupModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method='POST', action='/user/signup')
+                .modal-header register
+                .modal-body
+                    .form-group
+                        label(for='signupName') name
+                        input#signupName.form-control(name='name', type='text')
+                    .form-group
+                        label(for='signupPassword') password
+                        input#signupPassword.form-control(name='password', type='password')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') close
+                        button.btn.btn-primary(type='submit') submit
+
+#signinModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method='POST', action='/user/signin')
+                .modal-header login
+                .modal-body
+                    .form-group
+                        label(for='signinName') name
+                        input#signinName.form-control(name='name', type='text')
+                    .form-group
+                        label(for='signinPassword') password
+                        input#signinPassword.form-control(name='password', type='password')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') close
+                        button.btn.btn-primary(type='submit') submit
